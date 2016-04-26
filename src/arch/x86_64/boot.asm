@@ -1,4 +1,5 @@
 global start
+extern long_mode_start
 
 section .text
 bits 32
@@ -17,10 +18,12 @@ start:
     lgdt [gdt64.pointer]
 
     ; update selectors
-    mov ax, 16
+    mov ax, gdt64.data
     mov ss, ax  ; stack selector
     mov ds, ax  ; data selector
     mov es, ax  ; extra selector
+    
+    jmp gdt64.code:long_mode_start
 
 
     ; print `OK` to screen
