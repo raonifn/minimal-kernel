@@ -1,0 +1,10 @@
+[package]
+name = "raoni_os"
+version = "0.1.0"
+authors = ["Raoni Normanton"]
+
+[lib]
+crate-type = ["staticlib"]
+
+[dependencies]
+rlibc = "0.1.4"
